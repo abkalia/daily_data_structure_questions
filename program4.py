@@ -1,13 +1,16 @@
 '''
 LCM for three given numbers
 '''
-def lcm(a,b,c):
+def get_max(a,b,c):
     if a>b and a>c:
-        max = a
+        return a
     elif b>a and b>c:
-        max = b
+        return b
     else:
-        max = c 
+        return c 
+
+def lcm(a,b,c):
+    max = get_max(a,b,c)
     count = 1
     flag = 0
     while flag==0:
@@ -16,9 +19,16 @@ def lcm(a,b,c):
         else:
             count +=1
     print(max*count)   
+
 def hcf(a,b,c):
-    
+    max = get_max(a,b,c)
+    while max>=1:
+        if a%max==0 and b%max==0 and c%max==0:
+            return(max)
+        max -= 1
+
 a = int(input())
 b = int(input())
 c = int(input())
-lcm(a,b,c)
+hcfs = hcf(a,b,c)
+print(hcfs)
