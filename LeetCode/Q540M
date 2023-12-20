@@ -1,0 +1,47 @@
+/**
+540. Single Element in a Sorted Array
+Medium
+
+You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once.
+
+Return the single element that appears only once.
+
+Your solution must run in O(log n) time and O(1) space.
+*/
+var singleNonDuplicate = function(nums) {
+    var start = 0;
+    var length = nums.length; // 17
+    var end = length-1; //16
+    isEven = (end-start)%2 == 0;
+    if(nums[start] !=nums[start+1]){
+        return nums[start]; 
+    }
+    if(nums[end] !=nums[end-1]){
+        return nums[end];
+    }
+    while(start<end){
+        var midPoint = start + (end-start)/2; //8
+        if(nums[midPoint] == nums[midPoint-1]){
+            if(isEven){
+                end = midPoint-2;
+            } else {
+                start = midPoint+1;
+            }
+        }
+        else if(nums[midPoint] == nums[midPoint+1]){
+            if(isEven){
+                start = midPoint+2;
+            } else {
+                end = midPoint+1;
+            }
+        } else return nums[mid];
+    }
+    return nums[start];
+};
+var nums = [1,1,2,3,3,4,4,8,8];
+var nums = [1,1,2,2,3,3,4,8,8,9,9,10,10,11,11,12,12];
+var nums4 = [1,1,2,2,3,3,4,4,8,8,9,9,10,10,11,12,12];
+// var nums2 = [3,3,7,7,10,11,11];
+// var nums3 = [3,3,7,7,11,11];
+//console.log(nums.length);
+console.log(singleNonDuplicate(nums));
