@@ -1,17 +1,21 @@
 package org.example.datastructures.linkedlist;
 
-import org.example.datastructures.doublylinkedlist.DoubleLinkedList;
-
 public class Main {
     public static void main(String[] args){
         LinkedList myLinkedList = new LinkedList(1);
+        myLinkedList.append(8);
+        myLinkedList.append(9);
+        myLinkedList.append(10);
         myLinkedList.append(2);
         myLinkedList.append(3);
-//        myLinkedList.getLength();
-//        myLinkedList.printList();
-        DoubleLinkedList myDoublyLL = new DoubleLinkedList(1);
-        myDoublyLL.getHead();
-        myDoublyLL.getTail();
-        myDoublyLL.printList();
+        myLinkedList.append(6);
+        myLinkedList.append(4);
+        myLinkedList.append(5);
+        myLinkedList.getLength();
+        myLinkedList.printList();
+        myLinkedList.partitionList(5);
+        myLinkedList.reverseBetween(0,4);
+        myLinkedList.getLength();
+        myLinkedList.printList();
     }
 }
