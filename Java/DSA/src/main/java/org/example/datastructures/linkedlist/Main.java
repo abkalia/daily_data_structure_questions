@@ -7,9 +7,9 @@ public class Main {
         myLinkedList.append(6);
         myLinkedList.append(8);
         myLinkedList.append(9);
-//        myLinkedList.append(10);
+        myLinkedList.append(10);
         myLinkedList.getLength();
         myLinkedList.printList();
-        System.out.println("\nMiddle value is :" +myLinkedList.findMiddleNode().value);
+        System.out.println("\nkTh value is : " + myLinkedList.findKthFromEnd(7).value);
     }
 }
