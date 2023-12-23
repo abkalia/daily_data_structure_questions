@@ -195,6 +195,7 @@ public class LinkedList {
         return slow;
     }
 
+    //Good question
     public void partitionList(int x){
         if(head == null) {
             return;
@@ -217,6 +218,37 @@ public class LinkedList {
         prev2.next = null;
         prev1.next = dummy2.next;
         head = dummy1.next;
+    }
+
+    //reverse between
+    public void reverseBetween (int m, int n) {
+        if(m<0 || n>=length || m>n || m==n){
+            return;
+        }
+        Node temp = head;
+        Node before = null;
+        Node startBefore = null;
+        Node potentialEndNode = head;
+        for(int i=0;i<=n;i++){
+            if( i == m-1){
+                startBefore = temp;
+                potentialEndNode = temp.next;
+            }
+            if(i >=m && i<=n){
+                Node after = temp.next;
+                temp.next = before;
+                before = temp;
+                temp = after;
+            } else {
+                temp = temp.next;
+            }
+        }
+        if(startBefore == null){
+            head = before;
+        } else {
+            startBefore.next = before;
+        }
+        potentialEndNode.next = temp;
     }
 
     public void printList(){
