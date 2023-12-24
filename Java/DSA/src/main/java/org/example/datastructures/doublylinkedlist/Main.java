@@ -8,7 +8,9 @@ public class Main {
         myDoublyLinkedList.append(8);
         myDoublyLinkedList.prepend(2);
         myDoublyLinkedList.removeFirst();
+        myDoublyLinkedList.insert(1,4);
         myDoublyLinkedList.printList();
-        System.out.println("\nGET IS : " + myDoublyLinkedList.get(1).value);
+        System.out.println("\nremoved : " + myDoublyLinkedList.remove(2).value);
+        myDoublyLinkedList.printList();
     }
 }

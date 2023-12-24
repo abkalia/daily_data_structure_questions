@@ -104,8 +104,60 @@ public class DoubleLinkedList {
         }
         return temp;
     }
+
+    public Boolean set(int index,int value){
+        Node temp = get(index);
+        if(temp!=null){
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
+
+    public Boolean insert(int index,int value){
+        if(index > length || index < 0){
+            return false;
+        }
+        if(index ==0){
+            prepend(value);
+            return true;
+        } else if(index == length-1){
+            append(value);
+            return true;
+        }
+        Node newNode = new Node(value);
+        Node before = get(index-1);
+        Node after = before.next;
+        before.next = newNode;
+        newNode.prev = before;
+        newNode.next = after;
+        after.prev = newNode;
+        length++;
+        return true;
+    }
+
+    public Node remove(int index){
+        Node temp = get(index);
+        if(temp == null){
+            return null;
+        }
+        if(index ==0){
+            return removeFirst();
+        }
+        if(index == length-1){
+            return removeLast();
+        }
+        temp.prev.next = temp.next;
+        temp.next.prev = temp.prev;
+        temp.next = null;
+        temp.prev = null;
+        length--;
+        return temp;
+    }
+
     public void printList(){
         Node temp = head;
+        System.out.println("\n");
         while(temp!=null){
             System.out.print(temp.value + " ");
             temp = temp.next;
