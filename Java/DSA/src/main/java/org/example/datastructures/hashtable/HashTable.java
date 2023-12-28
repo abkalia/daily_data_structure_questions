@@ -1,12 +1,10 @@
 package org.example.datastructures.hashtable;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
+import java.util.*;
 
 public class HashTable {
-    private int size = 7;
-    private Node[] dataMap;
+    private final int size = 7;
+    private final Node[] dataMap;
 
     class Node{
         String key;
@@ -77,6 +75,42 @@ public class HashTable {
         }
         return false;
     }
+
+    public static Character firstNonRepeatingChar(String str){
+        char[] charList = str.toCharArray(); //need to check this.
+        HashMap<Character,Integer> hashMap = new HashMap<>();
+
+        for(char i: charList){
+            hashMap.put(i,hashMap.getOrDefault(i,0) +1);
+        }
+        for(char i:charList){
+            if(hashMap.get(i)!=null && hashMap.get(i) == 1){
+                return i;
+            }
+        }
+        return null;
+    }
+
+    //anagram list
+    public static List<List<String>> groupAnagrams(String[] strings){
+        HashMap<String,List<String>> anagramGroups = new HashMap<>();
+        for(String str: strings){
+            char[] charList = str.toCharArray();
+            List<String> list1 = new ArrayList<>();
+            Arrays.sort(charList);
+            String canonical = new String(charList);
+            if(anagramGroups.get(canonical)== null){
+                list1.add(str);
+                anagramGroups.put(canonical,list1);
+            } else {
+                List<String> list2 = anagramGroups.get(canonical);
+                list2.add(str);
+                anagramGroups.put(canonical,list2);
+            }
+        }
+        return new ArrayList<>(anagramGroups.values());
+    }
+
 
     public HashTable(){
         dataMap = new Node[size];
