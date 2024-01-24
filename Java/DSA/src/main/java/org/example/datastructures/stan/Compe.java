@@ -42,4 +42,66 @@ public class Compe {
         }
         return stringBuilder.toString();
     }
+
+    /** delete-the-middle-node-of-a-linked-list
+     * Definition for singly-linked list.
+     * public class ListNode {
+     *     int val;
+     *     ListNode next;
+     *     ListNode() {}
+     *     ListNode(int val) { this.val = val; }
+     *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+     * }
+    class Solution {
+        public ListNode deleteMiddle(ListNode head) {
+            ListNode slow = head;
+            ListNode fast = head;
+            ListNode slowPrev = head;
+            while(fast != null && fast.next != null){
+                slowPrev = slow;
+                slow = slow.next;
+                fast = fast.next.next;
+            }
+            if(slow != head){
+                slowPrev.next = slow.next;
+                slow.next = null;
+            } else {
+                return null;
+            }
+            return head;
+        }
+    }
+
+
+     https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+     class Solution {
+     public ListNode removeNthFromEnd(ListNode head, int n) {
+     ListNode start = head;
+     ListNode startPrev = null;
+     ListNode runner = head;
+     int counter = 0;
+     if(runner.next == null && n == 1){
+     return null;
+     }
+     while(runner != null){
+     if(counter < n){
+     counter++;
+     runner = runner.next;
+     } else {
+     startPrev = start;
+     start = start.next;
+     runner = runner.next;
+     }
+     }
+     if(startPrev != null){
+     startPrev.next = start.next;
+     start.next = null;
+     } else {
+     head = start.next;
+     }
+
+     return head;
+     }
+     }
+    **/
 }

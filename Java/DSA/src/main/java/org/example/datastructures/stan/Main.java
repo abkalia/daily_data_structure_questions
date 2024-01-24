@@ -1,15 +1,15 @@
 package org.example.datastructures.stan;
 
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args){
-        ArrayList<String> str = new ArrayList<>();
-        str.add("Chennai -> Banglore");
-        str.add("Bombay -> Delhi");
-        str.add("Goa -> Chennai");
-        str.add("Delhi -> Goa");
-        Compe comp = new Compe();
-        System.out.println(comp.listSort(str));
+        String myString = "abcab";
+        int middle = myString.length()/2;
+        System.out.println("Middle value " + middle);
+        System.out.println(myString.substring(0,middle));
+        if(myString.length() % 2 == 0){
+            System.out.println(myString.substring(middle));
+        } else {
+            System.out.println(myString.substring(middle+1));
+        }
     }
 }
