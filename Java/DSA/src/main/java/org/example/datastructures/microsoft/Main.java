@@ -5,7 +5,27 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args){
+        /*
+        id 	start_date 	end_date
+        ------------------------- -------
+        1	10-03-2024 	15-03-2024       
+        2	10-03-2024	16-03-2024       
+        3	11-03-2024	15-03-2024       
+        4   12-03-2024	14-03-2024       
+        5   09-03-2024  14-03-2024       
+        6   17-03-2024	20-09-2024       
+                                         
+                                         
+                                         
+        final mergeDlist                 
+                                         
+        id 	start_date 	end_date         
+        ------------------------- -------
+        1	09-03-2024 	16-03-2024       
+        3   17-03-2024	20-09-2024       
 
+
+         */
         Item emp1 = new Item(LocalDate.of(2024,3,10),LocalDate.of(2024,3,15),1);
         Item emp2 = new Item(LocalDate.of(2024,3,10),LocalDate.of(2024,3,16),2);
         Item emp3 = new Item(LocalDate.of(2024,3,11),LocalDate.of(2024,3,15),3);
